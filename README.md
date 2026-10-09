@@ -45,9 +45,14 @@ Requirements: Debian 12+ with `sudo` privileges and an internet connection.
 | `libfuse2t64` | FUSE 2 runtime required to launch AppImages |
 | `xsel` | X selection / clipboard access from scripts |
 | `xclip` | Copy/paste to X clipboard from the terminal |
+| `wl-clipboard` | Wayland clipboard utilities (`wl-copy` / `wl-paste`) |
 | `curl` | HTTP(S) downloads and API access |
 | `podman` | Daemonless OCI container engine |
 | `flatpak` | Sandboxed application distribution |
+| `htop` | Interactive process viewer and system monitor |
+| `ffmpeg` | Audio/video codecs, conversion, and thumbnails |
+| `cups` | Print spooler and print server |
+| `printer-driver-all` | Meta-package with common printer drivers |
 | `Flathub remote` | Default Flatpak app repository |
 | `gnome-software-plugin-flatpak` | Flatpak integration for GNOME Software (GNOME only) |
 | `plasma-discover-backend-flatpak` | Flatpak backend for Plasma Discover (KDE only) |
@@ -55,7 +60,7 @@ Requirements: Debian 12+ with `sudo` privileges and an internet connection.
 ## How It Works
 
 1. `sudo apt update`
-2. Installs: `git vlc libfuse2t64 xsel xclip curl podman flatpak`
+2. Installs: `git vlc libfuse2t64 xsel xclip wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all`
 3. Adds Flathub: `flatpak remote-add --if-not-exists --user flathub ...`
 4. Detects desktop via `$XDG_CURRENT_DESKTOP` / `$DESKTOP_SESSION` / `$XDG_SESSION_DESKTOP`, with `gnome-shell` / `plasmashell` fallback, then installs the matching backend
 
