@@ -24,7 +24,7 @@ echo "==> Updating apt..."
 sudo apt-get update
 
 echo "==> Installing essentials..."
-sudo apt-get install -y git vlc libfuse2t64 wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all
+sudo apt-get install -y git vlc libfuse2t64 wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all fonts-noto fonts-noto-color-emoji
 
 echo "==> Adding Flathub remote..."
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
