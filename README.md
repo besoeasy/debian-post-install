@@ -46,6 +46,8 @@ Requirements: Debian 12+ with `sudo` privileges and an internet connection.
 | `libfuse2t64` | FUSE 2 runtime required to launch AppImages |
 | `wl-clipboard` | Wayland clipboard utilities (`wl-copy` / `wl-paste`) |
 | `curl` | HTTP(S) downloads and API access |
+| `wget` | Alternative downloader many scripts expect |
+| `unzip zip` | Create and extract zip archives |
 | `podman` | Daemonless OCI container engine |
 | `flatpak` | Sandboxed application distribution |
 | `htop` | Interactive process viewer and system monitor |
@@ -61,7 +63,7 @@ Requirements: Debian 12+ with `sudo` privileges and an internet connection.
 ## How It Works
 
 1. Verifies `sudo` access and Debian OS, then `sudo apt-get update`
-2. Installs: `git vlc libfuse2t64 wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all fonts-noto fonts-noto-color-emoji`
+2. Installs: `git vlc libfuse2t64 wl-clipboard curl wget podman flatpak htop ffmpeg cups printer-driver-all fonts-noto fonts-noto-color-emoji unzip zip`
 3. Adds Flathub: `flatpak remote-add --if-not-exists --user flathub ...`
 4. Detects desktop via `$XDG_CURRENT_DESKTOP` / `$DESKTOP_SESSION` / `$XDG_SESSION_DESKTOP`, with `gnome-shell` / `plasmashell` fallback, then installs the matching backend
 
