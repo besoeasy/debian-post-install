@@ -4,6 +4,7 @@
 [![Shell](https://img.shields.io/badge/Shell-Bash-4EAA25?logo=gnubash&logoColor=white)](./run.sh)
 [![Flatpak](https://img.shields.io/badge/Flatpak-Flathub-4A90D9?logo=flatpak&logoColor=white)](https://flathub.org/)
 [![Podman](https://img.shields.io/badge/Podman-Containers-892CA0?logo=podman&logoColor=white)](https://podman.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 Minimal, opinionated setup script to run after a fresh Debian installation. Updates apt, installs daily essentials, configures Flatpak + Flathub, and auto-installs the correct Flatpak backend for GNOME or KDE Plasma.
 
@@ -67,3 +68,7 @@ See [`run.sh`](./run.sh) — short and auditable, easy to review before running.
 ## Contributing
 
 Issues and PRs welcome. Keep it minimal: essential, widely-useful Debian defaults only.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
