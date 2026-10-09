@@ -10,6 +10,14 @@ Minimal setup to run after a fresh Debian installation.
 
 ## Usage
 
+Run directly from jsDelivr (one-liner):
+
+```bash
+curl -fsSL https://cdn.jsdelivr.net/gh/besoeasy/debian-post-install@main/run.sh | bash
+```
+
+Or clone and run locally:
+
 ```bash
 chmod +x run.sh
 ./run.sh
