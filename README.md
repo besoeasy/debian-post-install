@@ -15,7 +15,7 @@ Minimal, opinionated setup script to run after a fresh Debian installation. Upda
 - Auto-detects desktop environment:
   - GNOME → `gnome-software-plugin-flatpak`
   - KDE Plasma → `plasma-discover-backend-flatpak`
-- Idempotent where possible, `set -e` for fail-fast behavior
+- Idempotent where possible, `set -euo pipefail` for fail-fast behavior
 
 ## Quick Start
 
@@ -57,12 +57,12 @@ Requirements: Debian 12+ with `sudo` privileges and an internet connection.
 
 ## How It Works
 
-1. `sudo apt update`
+1. Verifies `sudo` access and Debian OS, then `sudo apt-get update`
 2. Installs: `git vlc libfuse2t64 wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all`
 3. Adds Flathub: `flatpak remote-add --if-not-exists --user flathub ...`
 4. Detects desktop via `$XDG_CURRENT_DESKTOP` / `$DESKTOP_SESSION` / `$XDG_SESSION_DESKTOP`, with `gnome-shell` / `plasmashell` fallback, then installs the matching backend
 
-See [`run.sh`](./run.sh) — under 25 lines, easy to audit before running.
+See [`run.sh`](./run.sh) — short and auditable, easy to review before running.
 
 ## Contributing
 
