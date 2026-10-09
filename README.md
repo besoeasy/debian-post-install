@@ -24,3 +24,17 @@ chmod +x run.sh
 ```
 
 Requires Debian with `sudo` privileges.
+
+## Packages
+
+| Package | Use |
+| --- | --- |
+| `git` | Version control, clone repos |
+| `vlc` | Media player for audio/video |
+| `libfuse2t64` | FUSE 2 support, needed to run AppImages |
+| `xsel` | Command-line X selection / clipboard access |
+| `xclip` | Command-line X clipboard copy/paste |
+| `curl` | Transfer data via HTTP(S), download files/scripts |
+| `podman` | Daemonless container engine for OCI containers |
+| `flatpak` | Sandboxed app distribution system |
+| `Flathub remote` | Default Flatpak app repository source |
