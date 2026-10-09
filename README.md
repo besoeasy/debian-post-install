@@ -1,40 +1,66 @@
-# debian-post-install
+# Debian Post-Install
 
-Minimal setup to run after a fresh Debian installation.
+[![Debian](https://img.shields.io/badge/Debian-12%2B-A81D33?logo=debian&logoColor=white)](https://www.debian.org/)
+[![Shell](https://img.shields.io/badge/Shell-Bash-4EAA25?logo=gnubash&logoColor=white)](./run.sh)
+[![Flatpak](https://img.shields.io/badge/Flatpak-Flathub-4A90D9?logo=flatpak&logoColor=white)](https://flathub.org/)
+[![Podman](https://img.shields.io/badge/Podman-Containers-892CA0?logo=podman&logoColor=white)](https://podman.io/)
 
-## What it does
+Minimal, opinionated setup script to run after a fresh Debian installation. Updates apt, installs daily essentials, configures Flatpak + Flathub, and auto-installs the correct Flatpak backend for GNOME or KDE Plasma.
 
-`run.sh`:
-1. Updates apt and installs essentials: `git`, `vlc`, `libfuse2t64`, `xsel`, `xclip`, `curl`, `podman`, `flatpak`
-2. Adds Flathub as a user Flatpak remote (if not already added)
+## Features
 
-## Usage
+- One-command bootstrap for fresh Debian systems
+- Installs dev, media, container, and clipboard tools in one pass
+- Configures Flathub as a user Flatpak remote
+- Auto-detects desktop environment:
+  - GNOME → `gnome-software-plugin-flatpak`
+  - KDE Plasma → `plasma-discover-backend-flatpak`
+- Idempotent where possible, `set -e` for fail-fast behavior
 
-Run directly from jsDelivr (one-liner):
+## Quick Start
+
+Run directly from jsDelivr (installs `curl` first for minimal netinstalls):
 
 ```bash
 sudo apt update && sudo apt install -y curl && curl -fsSL https://cdn.jsdelivr.net/gh/besoeasy/debian-post-install@main/run.sh | bash
 ```
 
-Or clone and run locally:
+## Manual Usage
 
 ```bash
+git clone https://github.com/besoeasy/debian-post-install.git
+cd debian-post-install
 chmod +x run.sh
 ./run.sh
 ```
 
-Requires Debian with `sudo` privileges.
+Requirements: Debian 12+ with `sudo` privileges and an internet connection.
 
-## Packages
+## What Gets Installed
 
-| Package | Use |
+| Package | Purpose |
 | --- | --- |
-| `git` | Version control, clone repos |
-| `vlc` | Media player for audio/video |
-| `libfuse2t64` | FUSE 2 support, needed to run AppImages |
-| `xsel` | Command-line X selection / clipboard access |
-| `xclip` | Command-line X clipboard copy/paste |
-| `curl` | Transfer data via HTTP(S), download files/scripts |
-| `podman` | Daemonless container engine for OCI containers |
-| `flatpak` | Sandboxed app distribution system |
-| `Flathub remote` | Default Flatpak app repository source |
+| `git` | Version control and cloning repositories |
+| `vlc` | Full-featured audio/video media player |
+| `libfuse2t64` | FUSE 2 runtime required to launch AppImages |
+| `xsel` | X selection / clipboard access from scripts |
+| `xclip` | Copy/paste to X clipboard from the terminal |
+| `curl` | HTTP(S) downloads and API access |
+| `podman` | Daemonless OCI container engine |
+| `flatpak` | Sandboxed application distribution |
+| `Flathub remote` | Default Flatpak app repository |
+| `gnome-software-plugin-flatpak` | Flatpak integration for GNOME Software (GNOME only) |
+| `plasma-discover-backend-flatpak` | Flatpak backend for Plasma Discover (KDE only) |
+
+## How It Works
+
+1. `sudo apt update`
+2. Installs: `git vlc libfuse2t64 xsel xclip curl podman flatpak`
+3. Adds Flathub: `flatpak remote-add --if-not-exists --user flathub ...`
+4. Detects desktop via `$XDG_CURRENT_DESKTOP` / `$DESKTOP_SESSION` / `$XDG_SESSION_DESKTOP`, with `gnome-shell` / `plasmashell` fallback, then installs the matching backend
+
+See [`run.sh`](./run.sh) — under 25 lines, easy to audit before running.
+
+## Contributing
+
+Issues and PRs welcome. Keep it minimal: essential, widely-useful Debian defaults only.
