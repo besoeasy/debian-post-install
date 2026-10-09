@@ -2,7 +2,7 @@
 set -e
 
 sudo apt update
-sudo apt install -y git vlc libfuse2t64 xsel xclip wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all
+sudo apt install -y git vlc libfuse2t64 wl-clipboard curl podman flatpak htop ffmpeg cups printer-driver-all
 
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
